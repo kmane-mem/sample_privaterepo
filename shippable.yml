@@ -29,10 +29,10 @@ integrations:
         - "#rc-public" 
         - "#rc-private"
       
-    - integrationName: irc    
-      type: irc
-      recipients:
-        - "chat.freenode.net#test-rc"
+    #- integrationName: irc    
+    #  type: irc
+     # recipients:
+     #   - "chat.freenode.net#test-rc"
       
     - integrationName: notify-hipchat
       type: hipchat
