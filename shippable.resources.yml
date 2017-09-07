@@ -1,5 +1,5 @@
 resources:
-  - name: sample-scriptpvtgitreporepo
+  - name: sample-scriptpvtgitreporepoparam
     type: gitRepo
     allowPublicAccess: true
     integration: bitbucket
@@ -7,28 +7,20 @@ resources:
       sourceName: "shiptest-rc-me/sample-script-pvt"
       branch: master
   
-  - name: sample-scriptpubgitreporepo
+  - name: sample-scriptpubgitreporepoparam
     type: gitRepo
     integration: bitbucket
     pointer:
       sourceName: "shiptest-rc-me/sample-script-pub"
       branch: master
-  
-  - name: ddc-clusterpvt
-    type: cluster
-    allowPublicAccess: true
-    integration: ddc
-    pointer:
-      sourceName : "nothing"
-    flags: ddc_cluster 
     
-  - name: test-trigger01-pvt
+  - name: test-trigger01-pvtparam
     type: time
     allowPublicAccess: true
     seed:
       interval: "*/4 * * * *"
   
-  - name: sample_img_pvt
+  - name: sample_img_pvtparam
     type: image
     integration: docker
     allowPublicAccess: true
@@ -37,56 +29,12 @@ resources:
     seed:
       versionName: "deploy.2"
 
-  - name: sample-version-pvt
+  - name: sample-version-pvtparam
     type: version
     seed:
       versionName: "5.9.1"
-      
-  - name: sample-dockerintegration-pvt
-    type: integration
-    integration: "docker"
-    
-  - name: sample-loadbalancer-pvt
-    type: loadBalancer
-    pointer:
-      sourceName: EC2Contai-EcsElast-GPCOXIIKWPUJSREYA
-      
-  - name: longnameforresourceinresourcesdotshippabledotyml-shipDockerCli-pvt
-    type: cliConfig
-    integration: "docker"
-    
-  - name: sample-files-pvt
-    type: file
-    integration: docker
-    pointer:
-      sourceName: "random"
-    seed:
-      versionName: "random-2"
-      
-  - name: sample-ddccluster-pvt
-    type: cluster
-    integration: ddc
-    pointer:
-      sourceName : "nothing"
-
-  - name: sample-slack-pvt
-    type: notification
-    integration: "notify-slack"
-    pointer:
-      recipients:
-        - "#pipeline-pvt"
-        - "#pipeline-public"
-        - "@shiphitchcock1"
-
-  - name: sample-email-pvt
-    type: notification
-    pointer:
-      method: email
-      recipients: 
-        - "varsha@shippable.com"
-        - "shiptest-rc-me@gmail.com"
         
-  - name: sample-params-pvt
+  - name: sample-params-pvtparam
     type: params
     version:
       params:
@@ -96,16 +44,81 @@ resources:
         DB_NAME: "ayeaye"
         DB_PORT: "15700"
         
-  - name: sample-replica-pvt
-    type: replicas
-    version:
-      count: 2
+
  
-  - name: sample-state-pvt
+  - name: sample-state-pvtparam
     type: state
   
-  - name: sample-dopts-pvt
-    type: dockerOptions
+  - name: ar-paramstestshpvt
+    type: params
     version:
-      memory: 100
+      params:
+        FOO: bar
+        key1: value1
+        #secure: Xuq1cwGOn1lR1UTMfcwhdPUhJJXr0FeeG/M0/l4v7HFcjIRdrML13//R4RbMWxIeUtmdRWT1y3HRgQSqsRbYRIYF/6rTYH3/eazkowA2hHPZpT8vNfr3tFZJwQeSTf0qGtZOMO1iOacgaFOBgAdBCheJA8tN3ARHapUWk5bxuj7CpIq/LNWEbR/TcNNWaZJkyoWeK6/4U61xNPbVgyL1e73m3WmHPcGwpgTyxW+T1jqgh5m99D3p87UrfTeS6ss5YNA8lkZmFpdYZrq2LIKBMSJuq46Vj1VwRrtRGXYN2eYzmyDvpevciShm6Ai8w8o18eY6dwKrch8PSNloCVDHDA== 
+
+  - name: ar-paramsUserDefinedpvt
+    type: params
+    version:
+      params:
+        env1: one
+        env2: two
+        #pinneduserDv5: five
+        #pinneduserDv6: six
+        #pinneduserDv7: seven
+        #pinneduserDv8: eight
+    
+  - name: ar-paramOnlyOnepvt
+    type: params
+    version:
+      params:
+        env3: three
+        
+  - name: ar-paramsUrlsPvt
+    type: params
+    version:
+      params:
+        bitBucket0: https://bitbucket.org
+        RC: https://rcapp.shippable.com
+        Google: https://www.google.com
+        pinnedV3: https://rcapp.shippable.com/subs/github/shiphitchcock1/dashboard
+        #secure: w+yLpzlHKW1IILAHC3lyWFUddoaswNdoikpl11AhGUM7YMrIpLQ/gLZXQjulqWUGVxTFO7BebAqopgPYxEXtgOLCAqXzQ983eRSr5wke9jN07M3nWA37FARPKLzTXbpc4gqr62AR3r5Dk8ptMyzvH7cY9xaBbJBGCpf451TnqzhOj8b/gt9rAxcJInHLDFLgXiyS0bkdHjC2IzpoxYma7JkvFiv4oi674mmWIWwIP/kNEjwtrYumzfE8xXuAC/8anxsZ6Gjwq95Ai71l0SZqZoZDtoAZjBiee7GN2q5XrfppIav3KPIPf9XLRAo3ZK3H5WYtqoWSylRW+Ldf+hxwDg== #SHIPPABLE=https://www.shippable.com
+        version3: https://github.com/shiphitchcock1/rc-plv2/blob/test-runsh/shippable.jobs.yml
+
+  - name: test_params1pvt
+    type: params
+    version:
+      params:
+        A: one
+        B: two
+        p1: resourceymlp1
+        p2: resourceymlp2
+    flags: overwriteparams
+  
+  - name: test_params2pvt
+    type: params
+    version:
+      params:
+        p3: rc3
+        bar: resourceymlbar
+        foo: resourceymlfoo
+        p4: rc4
+        #secure: taXEdvIW+0PEUtHN+VBWdRjnlutz6VuiRi+yZIM5Vao+mcodnfJFxcmBS/2O1TD8dLoXEjb6JZO+gmYgSGJMgoB9zzMNlSs+R88jR0+dyHJsREP4/cT2YiPQGhttvsr5bMnM6p62HTQNd8cItDUEEqNJkorkKMFiuZqY24nb2Xq7znXE5j0mUKzkD1aY2fcAEaYjcs6Gra4pvsyhKClDStAvdXpCLmRTlrVRpaaCuqWUwSBODTR0aV7MFdPmCDZYWQr051Lwp0d0VeABFRD7HDx8fNTiZbP0ItRAb9cgKK5EqL0y8OQ8AzmzDAUA36GIl6cPlpvoK2bkjeJea58t/Q== #DEV1=alpha1
+    flags: overwriteparams
+  
+  - name: test_params3pvt
+    type: params
+    version:
+      params:
+        p5: rc5
+        p6: rc6
+
+  - name: test_params4pvt
+    type: params
+    version:
+      params:
+        p7: rc7
+        p8: rc8
+      
+
       
